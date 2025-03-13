@@ -3,6 +3,7 @@ __pycache__
 *.pyc
 data/*
 !data/.gitkeep
+!data/words.txt
 .ipynb_checkpoints
 .env
 .ipynb_checkpoints/*
