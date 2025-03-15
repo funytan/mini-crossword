@@ -1,9 +1,8 @@
-from collections import defaultdict
 from itertools import product
-from src.models import CrosswordSettings, ProcessedWord
 
 from loguru import logger
 
+from src.models import CrosswordSettings, ProcessedWord
 from src.utils import is_matchable
 
 

@@ -1,8 +1,8 @@
 from typing import Optional, Type
 
 from openai import AsyncOpenAI
-from tenacity import retry, stop_after_attempt, wait_random_exponential
 from pydantic import BaseModel
+from tenacity import retry, stop_after_attempt, wait_random_exponential
 
 
 @retry(
@@ -22,7 +22,7 @@ async def chat_completion_request(
     }
     try:
         response = await client.chat.completions.create(**request_body)
-    except Exception as e:
+    except Exception:
         raise
     return response.choices[0].message.content
 

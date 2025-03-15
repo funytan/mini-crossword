@@ -1,10 +1,8 @@
-from src.models import CrosswordSettings, Grid, CluesAndHints, ClueAndHint
-from src.config import AppSettings
-from loguru import logger
-from src.utils import Timer
-from openai import OpenAI
-from src.llm_utils import chat_completion_request_with_structured_output
 import asyncio
+
+from src.config import AppSettings
+from src.llm_utils import chat_completion_request_with_structured_output
+from src.models import ClueAndHint, CluesAndHints, CrosswordSettings, Grid
 
 
 async def generate_hints(
@@ -23,7 +21,7 @@ async def generate_hints(
     messages_list = [
         {
             "role": "user",
-            "content": ClUES_AND_HINTS_PROMPT.format(word=f"{word}"),
+            "content": ClUES_AND_HINTS_PROMPT.format(word=word.replace("_", "")),
         }
         for _, word in words
     ]
@@ -57,7 +55,7 @@ You are a mini crossword puzzle creator.
 Your task is to provide a clue for the word.
 As far as possible, the clue should be concise and easy to understand, and should be tricky enough to make the user think.
 
-Here is the word:
+Here is the word.:
 {word}
 
 Please provide the clue for the word. Only respond with the clue.

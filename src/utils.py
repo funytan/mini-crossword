@@ -1,9 +1,10 @@
-from numpy.random import choice
+import time
 from typing import Optional
-from src.models import ProcessedWord
 
 from loguru import logger
-import time
+from numpy.random import choice
+
+from src.models import ProcessedWord
 
 
 def randomly_select(

@@ -1,7 +1,7 @@
-from typing import List, Dict, Annotated, Optional
+from collections import defaultdict, namedtuple
+from typing import Annotated, Dict, List, Optional
+
 from pydantic import BaseModel, Field
-from openai import OpenAI
-from collections import namedtuple, defaultdict
 
 ProcessedWord = namedtuple("ProcessedWord", ["variation", "word", "length"])
 

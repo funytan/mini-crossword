@@ -1,11 +1,14 @@
-from fastapi import FastAPI, Depends
 from contextlib import asynccontextmanager
-from src.config import get_app_settings, AppSettings
-from src.loader import load
-from src.crossword.crossword_builder import generate_crossword
-from loguru import logger
-from src.models import Grid
+
+from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from loguru import logger
+from mangum import Mangum
+
+from src.config import AppSettings, get_app_settings
+from src.crossword.crossword_builder import generate_crossword
+from src.loader import load
+from src.models import Grid
 
 
 @asynccontextmanager
@@ -32,6 +35,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+handler = Mangum(app)
 
 
 def get_app_settings_dep() -> AppSettings:

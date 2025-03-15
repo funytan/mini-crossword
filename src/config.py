@@ -1,7 +1,7 @@
+from dotenv import load_dotenv
+from openai import AsyncOpenAI
 from pydantic import Field
 from pydantic_settings import BaseSettings
-from openai import AsyncOpenAI
-from dotenv import load_dotenv
 
 # Load environment variables from a .env file
 load_dotenv()

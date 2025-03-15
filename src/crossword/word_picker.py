@@ -1,8 +1,9 @@
 import random
-from src.models import CrosswordSettings, Grid
-from src.config import AppSettings
-from src.loader import load
+
 from loguru import logger
+
+from src.config import AppSettings
+from src.models import CrosswordSettings, Grid
 from src.utils import get_key
 
 

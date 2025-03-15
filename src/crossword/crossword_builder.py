@@ -1,11 +1,8 @@
-import random
-from src.models import CrosswordSettings, Grid
 from src.config import AppSettings
-from src.loader import load
-from loguru import logger
-from src.utils import Timer, get_key
-from src.crossword.word_picker import pick_a_3
 from src.crossword.hint_generator import generate_hints
+from src.crossword.word_picker import pick_a_3
+from src.models import CrosswordSettings, Grid
+from src.utils import Timer
 
 
 async def generate_crossword(
